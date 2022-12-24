@@ -9,7 +9,7 @@ dotenv.config()
 //console.log(process.env.OPENAI_API_KEY)
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: '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',
 });
 // openai documentaion
 const openai = new OpenAIApi(configuration);
@@ -18,7 +18,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.get('/home', async (req, res) => {
+app.get('/', async (req, res) => {
   res.status(200).send({
     message: 'Hello from FOSCODE AI!'
   })
@@ -29,7 +29,7 @@ app.post('/', async (req, res) => {
     const prompt = req.body.prompt;
 
     const response = await openai.createCompletion({
-      model: "code-davinci-002",
+      model: "text-davinci-003",
       prompt: `${prompt}`,
       temperature: 0, 
       max_tokens: 3000, 
