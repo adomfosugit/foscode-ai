@@ -18,7 +18,7 @@ function loader(element){
 
     // if loading indicator is max reset to loading
     if (element.textContent === '....') {
-        element.textContent = ' ';
+        element.textContent = '';
     }
 
   }, 300);
